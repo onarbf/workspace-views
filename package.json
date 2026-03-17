@@ -3,13 +3,17 @@
   "displayName": "Workspace Views",
   "description": "Create named views to pin and highlight repos in multi-root workspaces",
   "version": "1.0.0",
-  "publisher": "onar-berrade",
+  "publisher": "onarbf",
   "engines": {
     "vscode": "^1.85.0"
   },
   "categories": [
     "Other"
   ],
+    "repository": {
+    "type": "git",
+    "url": "https://github.com/onarbf/workspace-views"
+  },
   "keywords": [
     "workspace",
     "multi-root",
