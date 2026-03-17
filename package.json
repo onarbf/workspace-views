@@ -1,0 +1,123 @@
+{
+  "name": "workspace-views",
+  "displayName": "Workspace Views",
+  "description": "Create named views to pin and highlight repos in multi-root workspaces",
+  "version": "1.0.0",
+  "publisher": "onar-berrade",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "workspace",
+    "multi-root",
+    "views",
+    "focus",
+    "repos",
+    "pin",
+    "organize"
+  ],
+  "activationEvents": [
+    "workspaceFolderCount"
+  ],
+  "main": "./src/extension.js",
+  "icon": "media/icon.png",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "workspace-views",
+          "title": "Workspace Views",
+          "icon": "media/views.svg"
+        }
+      ]
+    },
+    "views": {
+      "workspace-views": [
+        {
+          "id": "workspaceViews.views",
+          "name": "Views"
+        },
+        {
+          "id": "workspaceViews.pinnedFolders",
+          "name": "Pinned Folders"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "workspaceViews.createView",
+        "title": "Create View",
+        "icon": "$(add)",
+        "category": "Workspace Views"
+      },
+      {
+        "command": "workspaceViews.useView",
+        "title": "Activate View",
+        "icon": "$(pin)",
+        "category": "Workspace Views"
+      },
+      {
+        "command": "workspaceViews.editView",
+        "title": "Edit View",
+        "icon": "$(edit)",
+        "category": "Workspace Views"
+      },
+      {
+        "command": "workspaceViews.deleteView",
+        "title": "Delete View",
+        "icon": "$(trash)",
+        "category": "Workspace Views"
+      },
+      {
+        "command": "workspaceViews.resetOrder",
+        "title": "Reset to Alphabetical",
+        "icon": "$(list-ordered)",
+        "category": "Workspace Views"
+      },
+      {
+        "command": "workspaceViews.refreshViews",
+        "title": "Refresh",
+        "icon": "$(refresh)",
+        "category": "Workspace Views"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "workspaceViews.createView",
+          "when": "view == workspaceViews.views",
+          "group": "navigation"
+        },
+        {
+          "command": "workspaceViews.resetOrder",
+          "when": "view == workspaceViews.views",
+          "group": "navigation"
+        },
+        {
+          "command": "workspaceViews.refreshViews",
+          "when": "view == workspaceViews.views",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "workspaceViews.useView",
+          "when": "view == workspaceViews.views && viewItem == view",
+          "group": "inline"
+        },
+        {
+          "command": "workspaceViews.editView",
+          "when": "view == workspaceViews.views && viewItem == view",
+          "group": "inline"
+        },
+        {
+          "command": "workspaceViews.deleteView",
+          "when": "view == workspaceViews.views && viewItem == view"
+        }
+      ]
+    }
+  }
+}
